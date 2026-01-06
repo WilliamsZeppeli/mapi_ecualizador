@@ -365,7 +365,7 @@ assert np.allclose(lhs, rhs)
 
 ### Señal Original vs Ecualizada
 
-![Comparison](comparison.png)
+![Comparison](ejemplos/comparison.png)
 
 **Interpretación**:
 
@@ -374,7 +374,7 @@ assert np.allclose(lhs, rhs)
 
 ### Espectrogramas
 
-![Spectrograms](spectrograms_comparison.png)
+![Spectrograms](ejemplos/spectrograms_comparison.png)
 
 **Interpretación**:
 
@@ -464,3 +464,4 @@ Para problemas o preguntas:
 ---
 
 **¡Disfruta experimentando con Fourier!** 🎵📊🔬
+
