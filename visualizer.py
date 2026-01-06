@@ -14,14 +14,16 @@ class AudioVisualizer:
     Incluye gráficas en dominio del tiempo, frecuencia y espectrogramas.
     """
     
-    def __init__(self, figsize: Tuple[int, int] = (15, 10)):
+    def __init__(self, figsize: Tuple[int, int] = (15, 10), output_dir: str = "."):
         """
         Inicializa el visualizador. 
         
         Args:
             figsize: Tamaño de las figuras (ancho, alto)
+            output_dir: Directorio donde guardar las visualizaciones
         """
         self.figsize = figsize
+        self.output_dir = output_dir
         plt.style.use('seaborn-v0_8-darkgrid')
     
     def plot_waveform(self, signal: np.ndarray, sample_rate: int, 
@@ -169,8 +171,9 @@ class AudioVisualizer:
                           axes[1, 1])
         
         plt.tight_layout()
-        plt.savefig('comparison.png', dpi=300, bbox_inches='tight')
-        print("✓ Comparación guardada en 'comparison.png'")
+        output_path = f"{self.output_dir}/comparison.png"
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"✓ Comparación guardada en '{output_path}'")
         
     def plot_band_energies(self, energies_before: np.ndarray,
                           energies_after:  np.ndarray,
@@ -207,8 +210,9 @@ class AudioVisualizer:
         ax.grid(True, alpha=0.3, axis='y')
         
         plt.tight_layout()
-        plt.savefig('band_energies.png', dpi=300, bbox_inches='tight')
-        print("✓ Energías por banda guardadas en 'band_energies.png'")
+        output_path = f"{self.output_dir}/band_energies.png"
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"✓ Energías por banda guardadas en '{output_path}'")
         
     def plot_equalizer_curve(self, frequencies: np.ndarray, 
                             response_db: np.ndarray,
@@ -245,8 +249,9 @@ class AudioVisualizer:
         ax.set_xlim(20, frequencies[-1])
         
         plt.tight_layout()
-        plt.savefig('equalizer_response.png', dpi=300, bbox_inches='tight')
-        print("✓ Respuesta del ecualizador guardada en 'equalizer_response.png'")
+        output_path = f"{self.output_dir}/equalizer_response.png"
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"✓ Respuesta del ecualizador guardada en '{output_path}'")
         
     def plot_spectrograms_comparison(self, spec_original: np.ndarray,
                                     spec_processed: np. ndarray,
@@ -272,8 +277,9 @@ class AudioVisualizer:
                              "Espectrograma Ecualizado", axes[1])
         
         plt.tight_layout()
-        plt.savefig('spectrograms_comparison.png', dpi=300, bbox_inches='tight')
-        print("✓ Comparación de espectrogramas guardada en 'spectrograms_comparison.png'")
+        output_path = f"{self.output_dir}/spectrograms_comparison.png"
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"✓ Comparación de espectrogramas guardada en '{output_path}'")
         
     def plot_parseval_verification(self, time_energy: float, 
                                    freq_energy: float,
@@ -318,5 +324,6 @@ class AudioVisualizer:
                fontsize=10)
         
         plt.tight_layout()
-        plt.savefig('parseval_verification.png', dpi=300, bbox_inches='tight')
-        print("✓ Verificación de Parseval guardada en 'parseval_verification.png'")
+        output_path = f"{self.output_dir}/parseval_verification.png"
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"✓ Verificación de Parseval guardada en '{output_path}'")

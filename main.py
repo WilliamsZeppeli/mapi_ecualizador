@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 import sys
+import os
 
 from fourier_analysis import FourierAnalyzer
 from equalizer import MultibandEqualizer
@@ -22,7 +23,12 @@ class AudioEqualizerApp:
     def __init__(self):
         """Inicializa la aplicación."""
         self.audio_processor = AudioProcessor()
-        self.visualizer = AudioVisualizer()
+        
+        # Crear carpeta de resultados si no existe
+        self.results_dir = Path("resultados")
+        self.results_dir.mkdir(exist_ok=True)
+        
+        self.visualizer = AudioVisualizer(output_dir=str(self.results_dir))
         
         # Parámetros configurables
         self.n_bands = 5
@@ -294,14 +300,14 @@ class AudioEqualizerApp:
         signal = self.audio_processor.normalize_audio(signal)
         
         # Guardar señal de prueba
-        test_file = "test_signal.wav"
-        self.audio_processor.save_audio(test_file, signal, sample_rate)
+        test_file = self.results_dir / "test_signal.wav"
+        self.audio_processor.save_audio(str(test_file), signal, sample_rate)
         
         print(f"✓ Señal de prueba generada: {test_file}")
         print("  Componentes frecuenciales: 100Hz, 500Hz, 1kHz, 3kHz, 8kHz\n")
         
         # Cargar y analizar
-        audio_data = self.load_and_analyze_audio(test_file)
+        audio_data = self.load_and_analyze_audio(str(test_file))
         
         # Configurar ecualización de ejemplo
         # Formato: [banda1, banda2, banda3, banda4, banda5] en dB
@@ -330,12 +336,13 @@ class AudioEqualizerApp:
         self.create_visualizations(eq_data)
         
         # Guardar resultado
-        self.save_equalized_audio(eq_data, "test_signal_equalized.wav")
+        output_file = self.results_dir / "test_signal_equalized.wav"
+        self.save_equalized_audio(eq_data, str(output_file))
         
         print("=" * 70)
         print("✅ DEMOSTRACIÓN COMPLETADA")
         print("=" * 70)
-        print("\nArchivos generados:")
+        print("\nArchivos generados en carpeta 'resultados':")
         print("  📄 test_signal.wav - Señal original")
         print("  📄 test_signal_equalized.wav - Señal ecualizada")
         print("  📊 comparison.png - Comparación tiempo-frecuencia")
@@ -393,8 +400,9 @@ class AudioEqualizerApp:
         self.create_visualizations(eq_data)
         
         # Guardar resultado
-        output_path = str(Path(filepath).stem) + "_equalized.wav"
-        self.save_equalized_audio(eq_data, output_path)
+        output_filename = str(Path(filepath).stem) + "_equalized.wav"
+        output_path = self.results_dir / output_filename
+        self.save_equalized_audio(eq_data, str(output_path))
         
         print("=" * 70)
         print("✅ PROCESAMIENTO COMPLETADO")
