@@ -8,12 +8,12 @@
 
 Este proyecto implementa un ecualizador de audio multibanda profesional con análisis espectral completo. Aplica conceptos fundamentales de:
 
-- **Transformada de Fourier (DFT/FFT)**
-- **Series de Fourier**
-- **Teorema de Parseval**
-- **Análisis Tiempo-Frecuencia (STFT)**
-- **Filtrado y Convolución**
-- **Propiedades de la Transformada de Fourier**
+-  **Transformada de Fourier (DFT/FFT)**
+-  **Series de Fourier**
+-  **Teorema de Parseval**
+-  **Análisis Tiempo-Frecuencia (STFT)**
+-  **Filtrado y Convolución**
+-  **Propiedades de la Transformada de Fourier**
 
 ---
 
@@ -86,8 +86,8 @@ STFT{x[n]}(m,ω) = Σ x[n] · w[n-m] · e^(-jωn)
 
 ### Requisitos
 
-- Python 3.8+
-- pip
+-  Python 3.8+
+-  pip
 
 ### Pasos
 
@@ -111,10 +111,10 @@ python main.py
 
 Este modo:
 
-- Genera una señal de prueba con 5 componentes frecuenciales (100Hz, 500Hz, 1kHz, 3kHz, 8kHz)
-- Aplica ecualización predefinida
-- Genera todos los análisis y visualizaciones
-- Verifica el Teorema de Parseval
+-  Genera una señal de prueba con 5 componentes frecuenciales (100Hz, 500Hz, 1kHz, 3kHz, 8kHz)
+-  Aplica ecualización predefinida
+-  Genera todos los análisis y visualizaciones
+-  Verifica el Teorema de Parseval
 
 ### Modo Interactivo
 
@@ -124,9 +124,9 @@ python main.py -i
 
 Permite:
 
-- Cargar tu propio archivo de audio `.wav`
-- Configurar ganancias personalizadas para cada banda
-- Procesar y analizar el audio
+-  Cargar tu propio archivo de audio `.wav`
+-  Configurar ganancias personalizadas para cada banda
+-  Procesar y analizar el audio
 
 ---
 
@@ -136,39 +136,39 @@ El programa genera los siguientes archivos:
 
 ### 🎵 Audio
 
-- `test_signal.wav` - Señal original de prueba
-- `test_signal_equalized.wav` - Señal ecualizada
-- `[nombre]_equalized.wav` - Audio procesado (modo interactivo)
+-  `test_signal.wav` - Señal original de prueba
+-  `test_signal_equalized.wav` - Señal ecualizada
+-  `[nombre]_equalized.wav` - Audio procesado (modo interactivo)
 
 ### 📈 Visualizaciones
 
 1. **comparison.png**
 
-   - Formas de onda (tiempo)
-   - Espectros de frecuencia (dB)
-   - Comparación antes/después
+   -  Formas de onda (tiempo)
+   -  Espectros de frecuencia (dB)
+   -  Comparación antes/después
 
 2. **spectrograms_comparison.png**
 
-   - Espectrograma original
-   - Espectrograma ecualizado
-   - Análisis tiempo-frecuencia (STFT)
+   -  Espectrograma original
+   -  Espectrograma ecualizado
+   -  Análisis tiempo-frecuencia (STFT)
 
 3. **band_energies.png**
 
-   - Distribución de energía por banda
-   - Comparación original vs ecualizado
+   -  Distribución de energía por banda
+   -  Comparación original vs ecualizado
 
 4. **equalizer_response.png**
 
-   - Curva de respuesta en frecuencia
-   - Bandas marcadas con colores
-   - Ganancias aplicadas en dB
+   -  Curva de respuesta en frecuencia
+   -  Bandas marcadas con colores
+   -  Ganancias aplicadas en dB
 
 5. **parseval_verification.png**
-   - Verificación del Teorema de Parseval
-   - Energías en dominio del tiempo y frecuencia
-   - Error relativo
+   -  Verificación del Teorema de Parseval
+   -  Energías en dominio del tiempo y frecuencia
+   -  Error relativo
 
 ---
 
@@ -309,8 +309,8 @@ python main. py -i
 
 **Observaciones esperadas**:
 
-- **Voz**: Mayor energía en mid-high (2-4 kHz)
-- **Música**: Energía distribuida en todo el espectro
+-  **Voz**: Mayor energía en mid-high (2-4 kHz)
+-  **Música**: Energía distribuida en todo el espectro
 
 ---
 
@@ -365,22 +365,22 @@ assert np.allclose(lhs, rhs)
 
 ### Señal Original vs Ecualizada
 
-![Comparison](ejemplos/comparison.png)
+![Comparison](ejemplos/demo/comparison.png)
 
 **Interpretación**:
 
-- **Tiempo**: Cambios en amplitud y forma
-- **Frecuencia**: Bandas realzadas/atenuadas según configuración
+-  **Tiempo**: Cambios en amplitud y forma
+-  **Frecuencia**: Bandas realzadas/atenuadas según configuración
 
 ### Espectrogramas
 
-![Spectrograms](ejemplos/spectrograms_comparison.png)
+![Spectrograms](ejemplos/demo/spectrograms_comparison.png)
 
 **Interpretación**:
 
-- **Eje X**: Tiempo
-- **Eje Y**: Frecuencia (escala logarítmica)
-- **Color**: Intensidad (dB)
+-  **Eje X**: Tiempo
+-  **Eje Y**: Frecuencia (escala logarítmica)
+-  **Color**: Intensidad (dB)
 
 ---
 
@@ -409,18 +409,18 @@ self.hop_length = 256  # Por defecto: 512
 
 1. **Transformada de Fourier**
 
-   - Oppenheim & Schafer. "Discrete-Time Signal Processing"
+   -  Oppenheim & Schafer. "Discrete-Time Signal Processing"
 
 2. **Teorema de Parseval**
 
-   - Parseval des Chênes, M.-A. (1806)
+   -  Parseval des Chênes, M.-A. (1806)
 
 3. **STFT**
 
-   - Allen, J. (1977). "Short term spectral analysis"
+   -  Allen, J. (1977). "Short term spectral analysis"
 
 4. **Procesamiento Digital de Señales**
-   - Proakis & Manolakis. "Digital Signal Processing"
+   -  Proakis & Manolakis. "Digital Signal Processing"
 
 ---
 
@@ -447,9 +447,9 @@ Proyecto educativo - Matemáticas Avanzadas
 
 Proyecto desarrollado para demostrar conceptos de:
 
-- Transformadas de Fourier
-- Análisis de señales
-- Procesamiento digital de audio
+-  Transformadas de Fourier
+-  Análisis de señales
+-  Procesamiento digital de audio
 
 ---
 
@@ -464,4 +464,3 @@ Para problemas o preguntas:
 ---
 
 **¡Disfruta experimentando con Fourier!** 🎵📊🔬
-
