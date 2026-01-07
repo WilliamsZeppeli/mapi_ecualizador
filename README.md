@@ -424,34 +424,15 @@ self.hop_length = 256  # Por defecto: 512
 
 ---
 
-## 🤝 Contribuciones
-
-Este proyecto es de código abierto para fines educativos. Conceptos implementados:
-
-✅ Series de Fourier (trigonométricas y complejas)  
-✅ DFT/FFT  
-✅ Teorema de Parseval  
-✅ Reconstrucción de señales  
-✅ Propiedades de la Transformada de Fourier  
-✅ Convolución y filtrado
-
----
-
 ## 📝 Licencia
 
-Proyecto educativo - Matemáticas Avanzadas
+**Uso Académico Exclusivo**
 
----
+Este proyecto fue desarrollado como parte del curso de Matemáticas Avanzadas y está destinado únicamente para fines educativos y de evaluación académica.
 
-## 👨‍💻 Autor
+**Autores**: González Rodríguez Zoe, Quintanar Bravo Jacqueline Williams, Barajas Pacheco Harol Fabian
 
-Proyecto desarrollado para demostrar conceptos de:
-
--  Transformadas de Fourier
--  Análisis de señales
--  Procesamiento digital de audio
-
----
+**Datos de Audio**: Obtenidos de Pixabay (Content License) - uso permitido para proyectos educativos.
 
 ## 🆘 Soporte
 
